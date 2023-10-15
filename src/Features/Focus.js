@@ -1,37 +1,43 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Platform,
-  StatusBar,
-} from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import { RoundedButton } from '../components/RoundedButton';
+import { Colors } from '../utils/Colors';
 
-export default function FocusView() {
-  const [text, setText] = useState("");
-  console.log(text)
+export default function FocusView({setListener}) {
+  const [text, setText] = useState('');
+
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.textField}
-        mode="outlined"
-        label="Email"
-        activeOutlineColor="#000"
-        onChangeText={value => setText(value)}
-      />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.textFieldContainer}>
+        <TextInput
+          style={styles.textField}
+          mode="flat"
+          label="What would you like to ficus on?"
+          activeUnderlineColor={Colors.darkBlue}
+          selectionColor={Colors.darkBlue}
+          cursorColor={Colors.darkBlue}
+          onChangeText={setText}
+        />
+        <View>
+          <RoundedButton title="+" size={50} onPress={() => setListener(text)} />
+        </View>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   textField: {
+    flex: 1,
     marginRight: 10,
-    marginLeft: 10,
+  },
+  textFieldContainer: {
+    padding: 25,
+    alignItems: "center",
+    flexDirection: 'row',
   },
 });
