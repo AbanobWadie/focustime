@@ -13,7 +13,7 @@ export default function FocusView({ setListener }) {
         <TextInput
           style={styles.textField}
           mode="flat"
-          label="What would you like to ficus on?"
+          label="What would you like to focus on?"
           activeUnderlineColor={Colors.darkBlue}
           selectionColor={Colors.darkBlue}
           cursorColor={Colors.darkBlue}
