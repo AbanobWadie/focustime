@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
-import { TextInput } from 'react-native-paper';
-import { RoundedButton } from '../components/RoundedButton';
-import { Colors } from '../utils/Colors';
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { TextInput } from "react-native-paper";
+import { RoundedButton } from "../components/RoundedButton";
+import { Colors } from "../utils/Colors";
 
-export default function FocusView({setListener}) {
-  const [text, setText] = useState('');
+export default function FocusView({ setListener }) {
+  const [text, setText] = useState("");
 
   return (
     <View style={styles.container}>
@@ -20,7 +20,11 @@ export default function FocusView({setListener}) {
           onChangeText={setText}
         />
         <View>
-          <RoundedButton title="+" size={50} onPress={() => setListener(text)} />
+          <RoundedButton
+            title="+"
+            size={50}
+            onPress={() => setListener(text)}
+          />
         </View>
       </View>
     </View>
@@ -29,7 +33,7 @@ export default function FocusView({setListener}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
   },
   textField: {
     flex: 1,
@@ -38,6 +42,6 @@ const styles = StyleSheet.create({
   textFieldContainer: {
     padding: 25,
     alignItems: "center",
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 });
